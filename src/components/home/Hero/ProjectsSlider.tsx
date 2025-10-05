@@ -8,8 +8,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 export default function ProjectsSlider() {
   // ✅ List of images — just add more objects here if needed
   const slides = [
-    { src: "/img/slider1.png", alt: "Modern tower angle" },
-    { src: "/img/slider2.jpg", alt: "Courtyard facade" },
+    { src: "/img/slider2.jpg", alt: "Modern tower angle" },
+    { src: "/img/slider3.jpg", alt: "Courtyard facade" },
     { src: "/img/slider3.jpg", alt: "Glass atrium" },
   
   ];
