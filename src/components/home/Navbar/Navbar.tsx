@@ -14,7 +14,8 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "Properties", href: "/properties" },
     { name: "Testimonials", href: "/testimonials" },
-    { name: "Contact Us", href: "/contact" }, // added Contact Us
+    { name: "Contact Us", href: "/contact-us" }, // added Contact Us
+    { name: "Get a quote", href: "/Quotation" }, // added Contact Us
   ];
 
   return (
@@ -25,7 +26,8 @@ export default function Navbar() {
       <ul className="hidden md:flex pl-4 space-x-6 text-sm font-medium text-black">
   {menuItems.map((item) => {
     // Skip rendering "Contact Us" here if you want it as a button separately
-    if (item.name === "Contact Us") return null;
+    if (item.name === "Contact Us" || item.name ==="Get a quote") return null;
+
 
     return (
       <li key={item.href}>
@@ -54,16 +56,16 @@ export default function Navbar() {
         {/* Desktop Buttons */}
         <div className="flex gap-4">
           <Link
-            href="/contact"
+            href="/contact-us"
             className={`hidden md:flex items-center px-3 py-2 rounded-md font-medium text-sm ${
-              pathname === "/contact" ? "text-[#183654] font-bold"
+              pathname === "/contact-us"  ? "text-[#183654] font-bold"
               : "text-black"
             }`}
           >
             Contact Us
           </Link>
 
-          <Link href="/Getquote">
+          <Link href="/Quotation">
             <button className="bg-[#0087DB] hidden md:flex flex-row justify-start items-center gap-[10px] px-[29px] py-[15px] w-[156px] h-[44px] rounded-[12px] text-white font-medium hover:bg-[#0072c5] transition">
               Get a quote
             </button>
