@@ -1,3 +1,6 @@
+import BuildTodaySection from "@/components/home/Build-today/BuildToday";
+import FaqSection from "@/components/home/FAQSection/FAQSection";
+import GetInTuch from "@/components/home/getInTuch/GetInTuch";
 import Hero from "@/components/home/Hero/Hero";
 import LocationsShowcase from "@/components/home/LocationsShowcase/LocationsShowcase";
 import MetricsSection from "@/components/home/MetricsSection/MetricsSection";
@@ -17,6 +20,10 @@ export default function Home() {
       <MetricsSection></MetricsSection>
       <StickyFeaturedPropertyCards></StickyFeaturedPropertyCards>
        <Project></Project>
+       <FaqSection></FaqSection>
+       <GetInTuch></GetInTuch>
+       <BuildTodaySection></BuildTodaySection>
+      
     </div>
   );
 }
