@@ -40,7 +40,7 @@ export default function Navbar() {
       {/* 🟢 Only this class update added */}
       <nav
   className={`w-11/12 sm:w-10/12 lg:w-9/12 h-14 lg:shadow-md z-40 md:bg-white md:backdrop-blur-md md:border fixed md:border-white/30 rounded-[17px] px-3 sm:px-2 flex items-center justify-between transition-transform duration-500 ease-in-out ${
-    isVisible ? "translate-y-[0]" : "-translate-y-[120px]" // 🟢 updated this line
+    isVisible ? "translate-y-[0]" : "-translate-y-[120px]" 
   } top-10`} // keep your normal top-10
 >
 
