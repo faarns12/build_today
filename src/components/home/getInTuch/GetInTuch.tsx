@@ -50,7 +50,7 @@ export default function GetInTuch() {
           transition={{ duration: 0.6, delay: 0.4, type: "spring", stiffness: 120 }}
           className="flex justify-center"
         >
-          <Link href={"/get-involved"}>
+          <Link href={"/contact-us"}>
             <button className="cursor-pointer text-white bg-[#0087DB] w-[170px] sm:w-[200px] h-[48px] sm:h-[54px] backdrop-blur-md hover:bg-[#0061A8] rounded-full flex items-center justify-between px-2">
               <span className="flex-1 text-lg sm:text-xl pl-2 text-left">
                 Get in Touch

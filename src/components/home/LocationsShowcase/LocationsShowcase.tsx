@@ -97,7 +97,7 @@ export default function LocationsSlider() {
     const id = setInterval(() => {
       const next = (index + visible) % cards.length;
       goTo(next);
-    }, 3500);
+    }, 1500);
     return () => clearInterval(id);
   }, [index, paused, visible]);
 

@@ -53,7 +53,7 @@ export default function FaqSection() {
               Here Are The Most Common Questions From Our Clients. Can`t Find
               Your Question?{" "}
               <a
-                href="#contact"
+                href="/contact-us"
                 className="text-[#0087DB] hover:underline "
               >
                 Get In Touch

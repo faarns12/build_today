@@ -6,11 +6,12 @@ import { motion } from "framer-motion";
 import { Building2,  Shield } from "lucide-react";
 import ProjectsSlider from "./ProjectsSlider";
 import { IoConstruct } from "react-icons/io5";
+import Link from "next/link";
 
 const Hero = () => {
   return (
     <section
-      className="relative py-10 md:mt-5 md:px-10 md:py-16 lg:py-20 md:rounded-3xl w-full md:w-11/12 mb-6 mx-auto bg-contain object-fill lg:h-[755px] flex items-center justify-center"
+      className="relative py-10 md:mt-5 md:px-10 md:py-16 lg:py-20 md:rounded-3xl w-full md:w-11/12 mb-6 mx-auto bg-contain object-fill lg:h-[855px] flex items-center justify-center"
       style={{
         backgroundImage: `url('/hero.jpg')`,
         backgroundSize: "cover",
@@ -106,13 +107,20 @@ const Hero = () => {
   transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
   className="flex flex-row items-center gap-2 sm:gap-3 md:gap-4 w-full sm:w-auto"
 >
+ <Link href={"/Quotation"}>
   <button className="w-full sm:w-auto h-[42px] sm:h-[48px] md:h-[50px] font-satoshi font-medium text-[12px] sm:text-sm md:text-base px-3 sm:px-4 md:px-4 rounded-[10px] bg-white text-[#183654] shadow-[0_1px_4px_0_rgba(24,45,92,0.4)] hover:shadow-md transition">
     Get a Free Quote
-  </button>
+  </button></Link>
 
+
+
+  <Link href={"/properties"}>
+  
   <button className="w-full sm:w-auto h-[42px] sm:h-[48px] md:h-[50px] font-satoshi font-medium text-[12px] sm:text-sm md:text-base px-3 sm:px-4 md:px-4 rounded-[10px] bg-[#0087DB] text-white shadow-[0_1px_4px_0_rgba(24,45,92,0.4)] hover:shadow-md transition">
     Explore our properties
   </button>
+  
+  </Link>
 </motion.div>
 
 
