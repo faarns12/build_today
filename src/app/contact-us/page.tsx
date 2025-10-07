@@ -1,6 +1,7 @@
 
+import BuildTodaySection from "@/components/Contact-us/BuildToday";
 import Heros from "@/components/Contact-us/Hero";
-import BuildTodaySection from "@/components/home/Build-today/BuildToday";
+
 import FaqSection from "@/components/home/FAQSection/FAQSection";
 import LocationsShowcase from "@/components/home/LocationsShowcase/LocationsShowcase";
 
