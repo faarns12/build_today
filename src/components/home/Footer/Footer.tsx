@@ -6,7 +6,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2B7C99] mt-4  text-white pt-10 pb-4">
+    <footer className="bg-[#2B7C99]   text-white pt-10 pb-4">
       <div className="w-11/12 mx-auto">
         <div className=" mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Address */}

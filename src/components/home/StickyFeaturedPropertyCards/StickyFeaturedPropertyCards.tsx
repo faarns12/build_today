@@ -48,14 +48,12 @@ export default function StickyFeaturedPropertyCards() {
 
   return (
     <div className="mx-auto w-11/12">
-   
-
       <div className="relative">
         {withZ.map((card, i) => (
           <section
             key={card.title}
-            className="sticky top-6 md:top-10 z-[var(--z)] mb-6 md:mb-8"
-          
+            className="sticky z-[var(--z)] mb-6 md:mb-8"
+            style={{ top: `${6 + i * 50}px` }} // first card 6px, second 56px, third 106px, ...
           >
             <div className="relative h-[220px] sm:h-[280px] md:h-[510px] rounded-[30px] overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.25)] ring-1 ring-white/20">
               <Image
@@ -98,7 +96,6 @@ export default function StickyFeaturedPropertyCards() {
           </section>
         ))}
       </div>
-
     </div>
   );
 }

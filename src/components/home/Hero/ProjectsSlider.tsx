@@ -101,7 +101,7 @@ export default function ProjectsSlider() {
       </div>
 
       {/* Slider container */}
-      <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/20 shadow-xl">
+      <div className="relative overflow-hidden rounded-2xl   ">
         <div className="relative aspect-[16/12] sm:aspect-[16/10]">
           <AnimatePresence custom={direction} mode="wait" initial={false}>
             {slides.map((slide, i) =>

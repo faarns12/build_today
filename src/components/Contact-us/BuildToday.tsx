@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function BuildTodaySection() {
   return (
-    <section className="w-11/12 mx-auto mt-7 bg-white overflow-hidden">
+    <section className=" mx-auto mt-10 bg-white overflow-hidden">
       <Marquee
         gradient={false} // disables fade gradient on edges
         speed={90}        // adjust speed

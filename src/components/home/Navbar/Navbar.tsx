@@ -2,26 +2,48 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // 🟢 added useEffect
 import { HiMenu, HiX } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // 🟢 added
+  const [lastScrollY, setLastScrollY] = useState(0); // 🟢 added
   const pathname = usePathname();
 
   const menuItems = [
     { name: "Home", href: "/" },
     { name: "Properties", href: "/properties" },
     { name: "Testimonials", href: "/testimonials" },
-    { name: "Contact Us", href: "/contact-us" }, // added Contact Us
-    { name: "Get a quote", href: "/Quotation" }, // added Contact Us
+    { name: "Contact Us", href: "/contact-us" },
+    { name: "Get a quote", href: "/Quotation" },
   ];
+
+  // 🟢 scroll listener added (no existing code changed)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <div className="w-full flex justify-center">
-      <nav className="w-11/12 sm:w-10/12 lg:w-9/12 h-14 z-40 md:bg-white md:backdrop-blur-md md:border top-10 fixed md:border-white/30 rounded-[17px] px-3 sm:px-2 flex items-center justify-between">
-        
+      {/* 🟢 Only this class update added */}
+      <nav
+  className={`w-11/12 sm:w-10/12 lg:w-9/12 h-14 z-40 md:bg-white md:backdrop-blur-md md:border fixed md:border-white/30 rounded-[17px] px-3 sm:px-2 flex items-center justify-between transition-transform duration-500 ease-in-out ${
+    isVisible ? "translate-y-[0]" : "-translate-y-[120px]" // 🟢 updated this line
+  } top-10`} // keep your normal top-10
+>
+
         {/* Desktop Menu */}
       <ul className="hidden md:flex pl-4 space-x-6 text-sm font-medium text-black">
   {menuItems.map((item) => {
