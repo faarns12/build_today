@@ -57,7 +57,7 @@ export default function Footer() {
             <ul className="space-y-1 text-sm">
               <li>
                 <Link
-                  href="#"
+                  href="/"
                   className="hover:underline font-bold text-lg text-white "
                 >
                   Home
@@ -65,7 +65,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/properties"
                   className="hover:underline font-bold text-lg text-white "
                 >
                   Properties
@@ -73,7 +73,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/testimonials"
                   className="hover:underline font-bold text-lg text-white "
                 >
                   Testimonials
@@ -81,7 +81,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/contact-us"
                   className="hover:underline font-bold text-lg text-white "
                 >
                   Contact Us
@@ -89,7 +89,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/Quotation"
                   className="hover:underline font-bold text-lg text-white "
                 >
                   Request a Quote
@@ -105,7 +105,7 @@ export default function Footer() {
                 Have a project in mind? Let’s make it a reality.
               </p>
 
-              <button
+              <Link href={"/Quotation"}><button
                 className="cursor-pointer text-white flex items-center my-6 justify-between px-1"
                 style={{
                   width: "248.31px",
@@ -124,7 +124,7 @@ export default function Footer() {
                     className="sm:size-7 text-black font-bold"
                   />
                 </span>
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>
