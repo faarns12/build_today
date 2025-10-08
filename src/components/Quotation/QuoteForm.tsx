@@ -46,7 +46,7 @@ export default function QuoteForm() {
             </label>
             <input
               {...register("fullName", { required: "Full name is required" })}
-              placeholder="Tahmeed Siraz"
+              placeholder="John Doe"
               className="w-full bg-[#FFFFFF99] px-3 py-3 text-[#573E69] text-sm sm:text-base font-semibold 
               shadow-[0px_2.11px_2.82px_1.41px_rgba(86,79,92,0.2)] rounded-[8px] 
               border-white border-2 focus:outline-none"
@@ -63,7 +63,7 @@ export default function QuoteForm() {
             <input
               type="email"
               {...register("email", { required: "Email is required" })}
-              placeholder="tahm33dabc@gmail.com"
+              placeholder="john.doe@gmail.com"
               className="w-full bg-[#FFFFFF99] px-3 py-3 text-[#573E69] text-sm sm:text-base font-semibold 
               shadow-[0px_2.11px_2.82px_1.41px_rgba(86,79,92,0.2)] rounded-[8px] 
               border-white border-2 focus:outline-none"
@@ -82,7 +82,7 @@ export default function QuoteForm() {
             </label>
             <input
               {...register("phone", { required: "Phone number is required" })}
-              placeholder="01715******"
+              placeholder="+61 4XX XXX XXX"
               className="w-full bg-[#FFFFFF99] px-3 py-3 text-[#573E69] text-sm sm:text-base font-semibold 
               shadow-[0px_2.11px_2.82px_1.41px_rgba(86,79,92,0.2)] rounded-[8px] 
               border-white border-2 focus:outline-none"
