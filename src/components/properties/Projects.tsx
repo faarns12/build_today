@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import { FaLocationDot } from "react-icons/fa6";
 
+// ✅ Project type & data
 type Project = {
+  id: number;
   title: string;
   price: string;
   location: string;
@@ -17,6 +20,7 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: 1,
     title: "Harbourfront Apartments",
     price: "$2,050,000",
     location: "Sydney, NSW | 12,000 sq m | Completed 2024",
@@ -26,6 +30,7 @@ const projects: Project[] = [
     img: "/img/house1.png",
   },
   {
+    id: 2,
     title: "Adelaide Suburban Duplex",
     price: "$4,080,000",
     location: "Adelaide, SA | 6 bedrooms | Residential",
@@ -35,6 +40,7 @@ const projects: Project[] = [
     img: "/img/house2.png",
   },
   {
+    id: 3,
     title: "Perth Lifestyle Centre",
     price: "$3,200,000",
     location: "Perth, WA | 25,000 sq m | Commercial",
@@ -44,6 +50,7 @@ const projects: Project[] = [
     img: "/img/house3.png",
   },
   {
+    id: 4,
     title: "Melbourne Innovation Hub",
     price: "$5,400,000",
     location: "Melbourne, VIC | 18,500 sq m | Mixed-use",
@@ -53,6 +60,7 @@ const projects: Project[] = [
     img: "/img/house1.png",
   },
   {
+    id: 5,
     title: "Brisbane Riverfront Villas",
     price: "$2,880,000",
     location: "Brisbane, QLD | 8 villas | Waterfront Residential",
@@ -62,6 +70,7 @@ const projects: Project[] = [
     img: "/img/house2.png",
   },
   {
+    id: 6,
     title: "Canberra Civic Towers",
     price: "$6,750,000",
     location: "Canberra, ACT | 30,000 sq m | Commercial",
@@ -72,10 +81,9 @@ const projects: Project[] = [
   },
 ];
 
-
 const categories = ["All", "Residential", "Commercial", "Interiors", "Renovations"];
 
-// ----- Project Card Component -----
+// ✅ Project Card Component
 function ProjectCard({ project }: { project: Project }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -84,7 +92,7 @@ function ProjectCard({ project }: { project: Project }) {
     const rect = e.currentTarget.getBoundingClientRect();
     const offsetX = e.clientX - rect.left;
     const offsetY = e.clientY - rect.top;
-    x.set((offsetX - rect.width / 2) / 10); // subtle movement
+    x.set((offsetX - rect.width / 2) / 10);
     y.set((offsetY - rect.height / 2) / 10);
   };
 
@@ -94,57 +102,51 @@ function ProjectCard({ project }: { project: Project }) {
   };
 
   return (
-   <motion.div
-  layout
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  exit={{ opacity: 0, y: 40 }}
-  transition={{ duration: 0.4, ease: "easeOut" }}
-  className="bg-white overflow-hidden border border-gray-100"
->
-  <motion.div
-    className="relative bg-[#3690BA] mx-auto h-48 md:h-56 lg:h-64 overflow-hidden"
-    onMouseMove={handleMouseMove}
-    onMouseLeave={handleMouseLeave}
-  >
-    <motion.div
-      style={{ x, y }}
-      className="absolute inset-0"
-      transition={{ type: "spring", stiffness: 50, damping: 10 }}
-    >
-      <Image
-        src={project.img}
-        alt={project.title}
-        fill
-        className="object-contain w-[300px]"
-      />
-    </motion.div>
-  </motion.div>
+    <Link href={`/properties/${project.id}`}>
+      <motion.div
+        layout
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 40 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="bg-white overflow-hidden border border-gray-100 cursor-pointer"
+      >
+        <motion.div
+          className="relative bg-[#3690BA] mx-auto h-48 md:h-56 lg:h-64 overflow-hidden"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <motion.div
+            style={{ x, y }}
+            className="absolute inset-0"
+            transition={{ type: "spring", stiffness: 50, damping: 10 }}
+          >
+            <Image
+              src={project.img}
+              alt={project.title}
+              fill
+              className="object-contain"
+            />
+          </motion.div>
+        </motion.div>
 
-  <div className="p-6">
-    <h3 className="text-[20px] sm:text-[22px] md:text-[24px] lg:text-[25px] font-bold text-[#183654]">
-      {project.title}
-    </h3>
-
-    <p className="text-[18px] sm:text-[20px] md:text-[21px] lg:text-[22px] text-[#183654] font-semibold mb-2">
-      {project.price}
-    </p>
-
-    <div className="flex items-center font-medium text-[#183654] text-xs sm:text-sm md:text-base mb-2">
-      <FaLocationDot className="h-4 w-4 mr-1 text-[#0087DB]" />
-      {project.location}
-    </div>
-
-    <p className="text-[#183654] text-sm sm:text-base md:text-[17px] leading-relaxed">
-      {project.desc}
-    </p>
-  </div>
-</motion.div>
-
+        <div className="p-6">
+          <h3 className="text-[22px] font-bold text-[#183654]">{project.title}</h3>
+          <p className="text-[20px] text-[#183654] font-semibold mb-2">
+            {project.price}
+          </p>
+          <div className="flex items-center font-medium text-[#183654] text-sm mb-2">
+            <FaLocationDot className="h-4 w-4 mr-1 text-[#0087DB]" />
+            {project.location}
+          </div>
+          <p className="text-[#183654] text-sm leading-relaxed">{project.desc}</p>
+        </div>
+      </motion.div>
+    </Link>
   );
 }
 
-// ----- Main Component -----
+// ✅ Main Projects Component
 export default function Projects() {
   const [active, setActive] = useState("All");
 
@@ -152,7 +154,7 @@ export default function Projects() {
     active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section className="  min-h-[600px] lg:w-9/12 md:w-11/12 px-3 mx-auto">
+    <section className="min-h-[600px] lg:w-9/12 md:w-11/12 px-3 mx-auto py-10">
       {/* Filter Bar */}
       <div className="flex flex-wrap justify-center gap-3 mb-10">
         {categories.map((cat) => (
@@ -161,10 +163,10 @@ export default function Projects() {
             onClick={() => setActive(cat)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            className={`px-4 py-3 rounded-[10px] shadow-[0px_2px_4px_0px_rgba(0,0,0,0.15)]  text-sm font-medium transition-all ${
+            className={`px-4 py-3 rounded-[10px] shadow text-sm font-medium transition-all ${
               active === cat
                 ? "bg-[#0087DB] text-white border-blue-600"
-                : "border-gray-300 text-[#573E69] text-sm hover:bg-blue-50"
+                : "border border-gray-300 text-[#573E69] hover:bg-blue-50"
             }`}
           >
             {cat}
@@ -176,17 +178,11 @@ export default function Projects() {
       {filtered.length > 0 ? (
         <motion.div
           layout
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6 "
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.1 } },
-          }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
         >
           <AnimatePresence>
             {filtered.map((p) => (
-              <ProjectCard key={p.title + p.category} project={p} />
+              <ProjectCard key={p.id} project={p} />
             ))}
           </AnimatePresence>
         </motion.div>
