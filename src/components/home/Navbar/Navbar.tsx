@@ -88,7 +88,7 @@ export default function Navbar() {
           </Link>
 
           <Link href="/Quotation">
-            <button className="bg-[#0087DB] hidden md:flex flex-row justify-start items-center gap-[10px] px-[29px] py-[15px] w-[156px] h-[44px] rounded-[12px] text-white font-medium hover:bg-[#0072c5] transition">
+            <button className="bg-[#0087DB] hidden md:flex flex-row justify-center items-center gap-[10px] px-[29px] py-[15px] w-[156px] h-[44px] rounded-[12px] text-white font-medium hover:bg-[#0072c5] transition">
               Get a quote
             </button>
           </Link>
