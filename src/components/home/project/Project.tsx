@@ -4,43 +4,156 @@ import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { FaLocationDot } from "react-icons/fa6";
 
 type Card = {
+  id: number;
   title: string;
-  desc: string;
+  price: string;
+  location: string;
+  beds: number;
+  baths: number;
+  cars: number;
+  type: string;
+  client: string;
+  completion: string;
   img: string;
+  floorImages: { src: string; label: string }[];
+  desc: string;
 };
 
 const cards: Card[] = [
   {
-    title: "Contemporary Family Home",
-    desc: "20 residential lots averaging 300 sq.m. each, planned for optimal space and investment potential.",
-    img: "/img/house1.png",
+    id: 1,
+    title: "A 2-STOREY SINGLE DWELLING",
+    price: "$2,050,000",
+    location: "27 BUTCHERBIRD LANE, AUSTRAL NSW 2179 LOT 59 DP 1295837",
+    beds: 3,
+    baths: 2,
+    cars: 2,
+    type: "Residential",
+    client: "XYZ Developers",
+    completion: "2024",
+    img: "/img/project1.png",
+
+   floorImages: [
+      { src: "/img/plan/plan1.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan11.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan111.jpg", label: "First Floor" },
+      { src: "/img/plan/plan1111.jpg", label: "First Floor" },
+      { src: "/img/plan/plan11111.jpg", label: "First Floor" },
+    ],
+    desc: "A premium residential tower overlooking the harbour, designed with a balance of luxury and sustainability. Its units are spacious, modern, and built for comfort.",
   },
   {
-    title: "Urban Duplex Project",
-    desc: "Two 3-bedroom, 2-bath units, 1,500 sq.ft. each. Ideal for investors or dual-family living with functional urban style.",
-    img: "/img/house2.png",
+    id: 2,
+    title: "DUAL OCCUPANCY",
+    price: "$4,080,000",
+    location: "17 MARLBOROUGH STREET, CAMPBELLTOWN NSW 2560",
+    beds: 6,
+    baths: 4,
+    cars: 3,
+    type: "Residential",
+    client: "ABC Holdings",
+    completion: "2025",
+    img: "/img/project23.png",
+  
+    floorImages: [
+      { src: "/img/plan/plan2.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan22.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan222.jpg", label: "First Floor" },
+      { src: "/img/plan/plan2222.jpg", label: "First Floor" },
+      { src: "/img/plan/plan22222.jpg", label: "First Floor" },
+    ],
+    desc: "Spacious family-friendly duplex with sustainable features and outdoor living spaces. The duplex offers smart home integration, private gardens, and high-quality finishes.",
   },
   {
-    title: "House & Land Package",
-    desc: "12 apartments, 2–3 bedrooms, 800–1,200 sq.ft. each. Modern urban living with high-quality finishes and amenities.",
+    id: 4,
+    title: "SINGLE DWELLING",
+    price: "$3,200,000",
+    location: "COMMELINA AVENUE, DENHAM COURT, NSW",
+    beds: 0,
+    baths: 0,
+    cars: 50,
+    type: "Commercial",
+    client: "LMN Enterprises",
+    completion: "2023",
     img: "/img/house3.png",
+  
+    floorImages: [
+      { src: "/img/plan/plan3.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan333.jpg", label: "First Floor" },
+      { src: "/img/plan/plan3333.jpg", label: "First Floor" },
+      { src: "/img/plan/plan33333.jpg", label: "First Floor" },
+    ],
+    desc: "A contemporary retail and lifestyle hub with green rooftops and flexible spaces, designed for shopping, entertainment, and community engagement.",
   },
   {
-    title: "Contemporary Family Home",
-    desc: "20 residential lots averaging 300 sq.m. each, planned for optimal space and investment potential.",
-    img: "/img/house1.png",
+    id: 3,
+    title: "2-STOREY ATTACHED DUAL OCCUPANCY DWELLING",
+    price: "$5,400,000",
+    location: "2 Quandong Street Leppington NSW 2179 Lot128 DP1280468",
+    beds: 0,
+    baths: 0,
+    cars: 200,
+    type: "Mixed-use",
+    client: "Tech Ventures",
+    completion: "2024",
+    img: "/img/project4.png",
+   
+     floorImages: [
+      { src: "/img/plan/plan4.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan44.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan444.jpg", label: "First Floor" },
+      { src: "/img/plan/plan4444.jpg", label: "First Floor" },
+      { src: "/img/plan/plan44444.jpg", label: "First Floor" },
+    ],
+    desc: "A state-of-the-art complex blending office, retail, and co-working spaces for tech startups and creative professionals, with modern design and sustainable features.",
   },
-  {
-    title: "Urban Duplex Project",
-    desc: "Two 3-bedroom, 2-bath units, 1,500 sq.ft. each. Ideal for investors or dual-family living with functional urban style.",
-    img: "/img/house2.png",
-  },
-  {
-    title: "House & Land Package",
-    desc: "12 apartments, 2–3 bedrooms, 800–1,200 sq.ft. each. Modern urban living with high-quality finishes and amenities.",
+ {
+    id: 5,
+    title: "SINGLE DWELLING",
+    price: "$3,200,000",
+    location: "COMMELINA AVENUE, DENHAM COURT, NSW",
+    beds: 0,
+    baths: 0,
+    cars: 50,
+    type: "Commercial",
+    client: "LMN Enterprises",
+    completion: "2023",
     img: "/img/house3.png",
+  
+    floorImages: [
+      { src: "/img/plan/plan3.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan333.jpg", label: "First Floor" },
+      { src: "/img/plan/plan3333.jpg", label: "First Floor" },
+      { src: "/img/plan/plan33333.jpg", label: "First Floor" },
+    ],
+    desc: "A contemporary retail and lifestyle hub with green rooftops and flexible spaces, designed for shopping, entertainment, and community engagement.",
+  },
+  {
+    id: 6,
+    title: "2-STOREY ATTACHED DUAL OCCUPANCY DWELLING",
+    price: "$5,400,000",
+    location: "2 Quandong Street Leppington NSW 2179 Lot128 DP1280468",
+    beds: 0,
+    baths: 0,
+    cars: 200,
+    type: "Mixed-use",
+    client: "Tech Ventures",
+    completion: "2024",
+    img: "/img/project4.png",
+  
+     floorImages: [
+      { src: "/img/plan/plan4.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan44.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan444.jpg", label: "First Floor" },
+      { src: "/img/plan/plan4444.jpg", label: "First Floor" },
+      { src: "/img/plan/plan44444.jpg", label: "First Floor" },
+    ],
+    desc: "A state-of-the-art complex blending office, retail, and co-working spaces for tech startups and creative professionals, with modern design and sustainable features.",
   },
 ];
 
@@ -50,7 +163,6 @@ export default function ProjectCarousel() {
   const [paused, setPaused] = useState(false);
   const [visible, setVisible] = useState(1);
 
-  // Determine how many cards are visible based on screen width
   const getVisibleCount = () => {
     if (typeof window === "undefined") return 1;
     if (window.innerWidth >= 1024) return 3;
@@ -65,17 +177,15 @@ export default function ProjectCarousel() {
     return () => window.removeEventListener("resize", updateVisible);
   }, []);
 
-  // Scroll to specific card
   const goTo = (i: number) => {
     const el = trackRef.current;
     if (!el) return;
     const card = el.querySelector<HTMLElement>("[data-card]");
     if (!card) return;
-    const step = card.offsetWidth + 24; // card width + gap
+    const step = card.offsetWidth + 24;
     el.scrollTo({ left: i * step, behavior: "smooth" });
   };
 
-  // Scroll left/right arrow
   const scroll = (dir: "left" | "right") => {
     const next = dir === "left"
       ? Math.max(0, index - 1)
@@ -84,7 +194,6 @@ export default function ProjectCarousel() {
     setIndex(next);
   };
 
-  // Update index on manual scroll
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
@@ -107,7 +216,6 @@ export default function ProjectCarousel() {
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Auto-scroll every 3.5s
   useEffect(() => {
     if (paused) return;
 
@@ -163,40 +271,41 @@ export default function ProjectCarousel() {
 
         {/* Cards */}
         <div
-  ref={trackRef}
-  onMouseEnter={() => setPaused(true)}
-  onMouseLeave={() => setPaused(false)}
-  className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory scrollbar-none"
->
-  <style>{`div::-webkit-scrollbar{display:none}`}</style>
+          ref={trackRef}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory scrollbar-none"
+        >
+          <style>{`div::-webkit-scrollbar{display:none}`}</style>
 
-  {cards.map((c, i) => (
-    <article
-      key={i}
-      data-card
-      className="group flex-shrink-0 bg-white snap-start overflow-hidden w-[220px] sm:w-[280px] md:w-[320px] lg:w-[380px] transition-transform duration-300 hover:-translate-y-1"
-    >
-      <div className="relative h-[140px] sm:h-[180px] md:h-[220px] bg-[#3B9ECC] lg:h-[280px] w-full">
-        <Image
-          src={c.img}
-          alt={c.title}
-          fill
-          className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
-          priority={i < 3}
-        />
-      </div>
-      <div className="p-3 sm:p-4 md:p-5 flex flex-col gap-1 sm:gap-2">
-        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900">
-          {c.title}
-        </h3>
-        <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-sm leading-relaxed">
-          {c.desc}
-        </p>
-      </div>
-    </article>
-  ))}
-</div>
-
+          {cards.map((c, i) => (
+            <Link key={c.id} href={`/properties/${c.id}`}>
+              <article
+                data-card
+                className="group flex-shrink-0 bg-white snap-start overflow-hidden w-[220px] sm:w-[280px] md:w-[320px] lg:w-[380px] transition-transform duration-300 hover:-translate-y-1"
+              >
+                <div className="relative h-[140px] sm:h-[180px] md:h-[220px] lg:h-[280px] bg-[#3B9ECC] w-full">
+                  <Image
+                    src={c.img}
+                    alt={c.title}
+                    fill
+                    className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    priority={i < 3}
+                  />
+                </div>
+                <div className="p-3 sm:p-4 md:p-5 flex flex-col gap-1 sm:gap-2">
+                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900">
+                    {c.title}
+                  </h3>
+                   <p className="flex items-center font-medium text-[#183654] text-sm mb-2">
+            <FaLocationDot className="h-4 w-4 mr-1 text-[#0087DB]" />
+            {c.location}
+          </p>
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

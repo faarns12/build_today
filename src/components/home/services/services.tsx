@@ -63,12 +63,23 @@ export default function ServicesHoverSection() {
     <section className="mx-auto my-6  w-11/12 rounded-[26px] bg-[#0E2A44] text-white p-5 sm:p-8 md:p-12 relative">
       <div className="lg:px-32">
         {/* Top-left tiny pill */}
-        <div className="flex gap-6 justify-between items-start">
-          <span
-            className="text-black  px-3.5 py-3 text-[12px] border border-white rounded-[10px] bg-white shadow-[0_10px_15px_rgba(0,0,0,0.1),_0_4px_6px_rgba(0,0,0,0.1)]"
-          >
-            Our Services
-          </span>
+        <div className="flex gap-6 justify-between items-start mb-10">
+        <span
+  className="
+    text-black
+    border border-white
+    rounded-[10px]
+    bg-white
+    shadow-[0_10px_15px_rgba(0,0,0,0.1),_0_4px_6px_rgba(0,0,0,0.1)]
+    px-3.5 py-2 text-[10px]
+    sm:px-4 sm:py-2.5 sm:text-[11px]
+    md:px-5 md:py-3 md:text-[12px]
+    lg:px-6 lg:py-3.5 lg:text-[13px]
+  "
+>
+  Our Services
+</span>
+
           <h1 className="text-[20px] sm:text-[45px] leading-tight  max-w-xl ">
             To build your dream home with expert craftsmanship and trusted quality
           </h1>
@@ -118,7 +129,7 @@ export default function ServicesHoverSection() {
                       {s.badges.map((b, idx) => (
                         <span
                           key={idx}
-                          className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-3 py-1.5"
+                          className="inline-flex items-center gap-2 rounded-full  px-3 py-1.5"
                         >
                           <span className="[&>*]:h-4 [&>*]:w-4">{b.icon}</span>
                           <span>{b.text}</span>
@@ -137,7 +148,7 @@ export default function ServicesHoverSection() {
                     "relative grid h-10 w-10 place-items-center rounded-full transition-all",
                     active === i
                       ? "bg-white text-[#0E2A44] -rotate-[45deg]"
-                      : "border border-white/30 text-white/90 rotate-45",
+                      : " text-white/90 rotate-45",
                   ].join(" ")}
                 >
                   <ArrowRight className="w-5 h-5" />
@@ -146,18 +157,7 @@ export default function ServicesHoverSection() {
             </div>
 
             {/* Animated underline (Hide for last row) */}
-            {i !== services.length - 1 && (
-              <div className="absolute right-0 bottom-0 left-0 h-px bg-white/10">
-                <div
-                  className={[
-                    "h-px origin-left bg-white/60 transition-transform duration-300",
-                    active === i
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100",
-                  ].join(" ")}
-                />
-              </div>
-            )}
+          
 
             {/* Hover image */}
             {s.img && (

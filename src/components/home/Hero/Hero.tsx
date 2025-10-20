@@ -4,7 +4,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Building2,  Shield } from "lucide-react";
-import ProjectsSlider from "./ProjectsSlider";
 import { IoConstruct } from "react-icons/io5";
 import Link from "next/link";
 
@@ -127,10 +126,7 @@ const Hero = () => {
 
         </div>
 
-        {/* Right Column */}
-        <div className="relative z-10 w-full lg:w-auto mt-6 lg:mt-[210px] flex justify-center lg:justify-end">
-          <ProjectsSlider />
-        </div>
+       
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import BuildTodaySection from "@/components/home/Build-today/BuildToday";
 import FaqSection from "@/components/home/FAQSection/FAQSection";
 import GetInTuch from "@/components/home/getInTuch/GetInTuch";
 import Hero from "@/components/home/Hero/Hero";
-import LocationsShowcase from "@/components/home/LocationsShowcase/LocationsShowcase";
+// import LocationsShowcase from "@/components/home/LocationsShowcase/LocationsShowcase";
 import MetricsSection from "@/components/home/MetricsSection/MetricsSection";
 import Project from "@/components/home/project/Project";
 import ServicesHoverSection from "@/components/home/services/services";
@@ -15,7 +15,7 @@ export default function Home() {
       
      <Hero></Hero>
       <ValueProp></ValueProp>
-      <LocationsShowcase></LocationsShowcase>
+      {/* <LocationsShowcase></LocationsShowcase> */}
       <ServicesHoverSection></ServicesHoverSection>
       <MetricsSection></MetricsSection>
       <StickyFeaturedPropertyCards></StickyFeaturedPropertyCards>

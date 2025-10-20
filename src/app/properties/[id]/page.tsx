@@ -17,26 +17,25 @@ import { PiScroll } from "react-icons/pi";
 import {
   MdLocationOn,
   MdOutlineBalcony,
-  MdOutlineBathtub,
-  MdSingleBed,
+
 } from "react-icons/md";
-import { LiaCarSolid } from "react-icons/lia";
+
 import { useState } from "react";
 
 // ✅ Mock property data
 const properties = [
   {
     id: 1,
-    title: "Harbourfront Apartments",
+    title: "A 2-STOREY SINGLE DWELLING",
     price: "$2,050,000",
-    location: "Sydney, Australia",
+    location: "27 BUTCHERBIRD LANE, AUSTRAL NSW 2179 LOT 59 DP 1295837",
     beds: 3,
     baths: 2,
     cars: 2,
     type: "Residential",
     client: "XYZ Developers",
     completion: "2024",
-    img: "/img/house1.png",
+    img: "/img/project1.png",
     features: [
       { name: "Balconies in Every Unit", icon: MdOutlineBalcony },
       { name: "Built-in wardrobes", icon: DoorClosed },
@@ -45,45 +44,48 @@ const properties = [
       { name: "Modern Sanitary Design", icon: ShowerHead },
       { name: "Reinforced Structure", icon: Building2 },
     ],
-    floorImages: [
-      { src: "/img/plan.png", label: "Site Plan" },
-      { src: "/img/plan.png", label: "Ground Floor" },
-      { src: "/img/plan.png", label: "First Floor" },
+   floorImages: [
+      { src: "/img/plan/plan1.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan11.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan111.jpg", label: "First Floor" },
+      { src: "/img/plan/plan1111.jpg", label: "First Floor" },
+      { src: "/img/plan/plan11111.jpg", label: "First Floor" },
     ],
     desc: "A premium residential tower overlooking the harbour, designed with a balance of luxury and sustainability. Its units are spacious, modern, and built for comfort.",
   },
   {
     id: 2,
-    title: "Adelaide Suburban Duplex",
+    title: "DUAL OCCUPANCY",
     price: "$4,080,000",
-    location: "Adelaide, Australia",
+    location: "17 MARLBOROUGH STREET, CAMPBELLTOWN NSW 2560",
     beds: 6,
     baths: 4,
     cars: 3,
     type: "Residential",
     client: "ABC Holdings",
     completion: "2025",
-    img: "/img/house2.png",
+    img: "/img/project23.png",
     features: [
-      { name: "Balconies in Every Unit", icon: MdOutlineBalcony },
-      { name: "Built-in wardrobes", icon: DoorClosed },
-      { name: "Basement Parking", icon: ParkingSquare },
-      { name: "Smart Key Access", icon: Key },
-      { name: "Modern Sanitary Design", icon: ShowerHead },
-      { name: "Reinforced Structure", icon: Building2 },
+      { src: "/img/plan/plan1.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan11.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan111.jpg", label: "First Floor" },
+      { src: "/img/plan/plan1111.jpg", label: "First Floor" },
+      { src: "/img/plan/plan11111.jpg", label: "First Floor" },
     ],
     floorImages: [
-      { src: "/img/plan.png", label: "Site Plan" },
-      { src: "/img/plan.png", label: "Ground Floor" },
-      { src: "/img/plan.png", label: "First Floor" },
+      { src: "/img/plan/plan2.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan22.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan222.jpg", label: "First Floor" },
+      { src: "/img/plan/plan2222.jpg", label: "First Floor" },
+      { src: "/img/plan/plan22222.jpg", label: "First Floor" },
     ],
     desc: "Spacious family-friendly duplex with sustainable features and outdoor living spaces. The duplex offers smart home integration, private gardens, and high-quality finishes.",
   },
   {
-    id: 3,
-    title: "Perth Lifestyle Centre",
+    id: 4,
+    title: "SINGLE DWELLING",
     price: "$3,200,000",
-    location: "Perth, Australia",
+    location: "COMMELINA AVENUE, DENHAM COURT, NSW",
     beds: 0,
     baths: 0,
     cars: 50,
@@ -100,24 +102,26 @@ const properties = [
       { name: "Modern Construction", icon: Building2 },
     ],
     floorImages: [
-      { src: "/img/plan.png", label: "Site Plan" },
-      { src: "/img/plan.png", label: "Ground Floor" },
-      { src: "/img/plan.png", label: "First Floor" },
+      { src: "/img/plan/plan3.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan333.jpg", label: "First Floor" },
+      { src: "/img/plan/plan3333.jpg", label: "First Floor" },
+      { src: "/img/plan/plan33333.jpg", label: "First Floor" },
     ],
     desc: "A contemporary retail and lifestyle hub with green rooftops and flexible spaces, designed for shopping, entertainment, and community engagement.",
   },
   {
-    id: 4,
-    title: "Melbourne Innovation Hub",
+    id: 3,
+    title: "2-STOREY ATTACHED DUAL OCCUPANCY DWELLING",
     price: "$5,400,000",
-    location: "Melbourne, Australia",
+    location: "2 Quandong Street Leppington NSW 2179 Lot128 DP1280468",
     beds: 0,
     baths: 0,
     cars: 200,
     type: "Mixed-use",
     client: "Tech Ventures",
     completion: "2024",
-    img: "/img/house1.png",
+    img: "/img/project4.png",
     features: [
       { name: "Co-working Spaces", icon: MdOutlineBalcony },
       { name: "Rooftop Amenities", icon: DoorClosed },
@@ -126,66 +130,72 @@ const properties = [
       { name: "Energy Efficient HVAC", icon: ShowerHead },
       { name: "Durable Structure", icon: Building2 },
     ],
-    floorImages: [
-      { src: "/img/plan.png", label: "Site Plan" },
-      { src: "/img/plan.png", label: "Ground Floor" },
-      { src: "/img/plan.png", label: "First Floor" },
+     floorImages: [
+      { src: "/img/plan/plan4.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan44.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan444.jpg", label: "First Floor" },
+      { src: "/img/plan/plan4444.jpg", label: "First Floor" },
+      { src: "/img/plan/plan44444.jpg", label: "First Floor" },
     ],
     desc: "A state-of-the-art complex blending office, retail, and co-working spaces for tech startups and creative professionals, with modern design and sustainable features.",
   },
-  {
+ {
     id: 5,
-    title: "Brisbane Riverfront Villas",
-    price: "$2,880,000",
-    location: "Brisbane, Australia",
-    beds: 4,
-    baths: 3,
-    cars: 2,
-    type: "Residential",
-    client: "Riverfront Group",
-    completion: "2025",
-    img: "/img/house2.png",
-    features: [
-      { name: "Private Docks", icon: MdOutlineBalcony },
-      { name: "Smart Home Integration", icon: DoorClosed },
-      { name: "Basement Parking", icon: ParkingSquare },
-      { name: "Balconies in Every Unit", icon: Key },
-      { name: "Modern Sanitary Design", icon: ShowerHead },
-      { name: "Reinforced Structure", icon: Building2 },
-    ],
-    floorImages: [
-      { src: "/img/plan.png", label: "Site Plan" },
-      { src: "/img/plan.png", label: "Ground Floor" },
-      { src: "/img/plan.png", label: "First Floor" },
-    ],
-    desc: "Exclusive riverside villas featuring smart home integration, private docks, and panoramic views. Designed for comfort, luxury, and modern living.",
-  },
-  {
-    id: 6,
-    title: "Canberra Civic Towers",
-    price: "$6,750,000",
-    location: "Canberra, Australia",
+    title: "SINGLE DWELLING",
+    price: "$3,200,000",
+    location: "COMMELINA AVENUE, DENHAM COURT, NSW",
     beds: 0,
     baths: 0,
-    cars: 300,
+    cars: 50,
     type: "Commercial",
-    client: "Government Projects",
-    completion: "2024",
+    client: "LMN Enterprises",
+    completion: "2023",
     img: "/img/house3.png",
     features: [
-      { name: "Premium Office Spaces", icon: MdOutlineBalcony },
-      { name: "Retail Spaces", icon: DoorClosed },
+      { name: "Rooftop Green Spaces", icon: MdOutlineBalcony },
+      { name: "Flexible Office Layouts", icon: DoorClosed },
       { name: "Basement Parking", icon: ParkingSquare },
       { name: "Smart Security System", icon: Key },
       { name: "Energy Efficient Design", icon: ShowerHead },
       { name: "Modern Construction", icon: Building2 },
     ],
     floorImages: [
-      { src: "/img/plan.png", label: "Site Plan" },
-      { src: "/img/plan.png", label: "Ground Floor" },
-      { src: "/img/plan.png", label: "First Floor" },
+      { src: "/img/plan/plan3.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan333.jpg", label: "First Floor" },
+      { src: "/img/plan/plan3333.jpg", label: "First Floor" },
+      { src: "/img/plan/plan33333.jpg", label: "First Floor" },
     ],
-    desc: "A pair of high-rise towers offering premium office and retail spaces with sustainable energy systems and open plazas, designed with modern architecture.",
+    desc: "A contemporary retail and lifestyle hub with green rooftops and flexible spaces, designed for shopping, entertainment, and community engagement.",
+  },
+  {
+    id: 6,
+    title: "2-STOREY ATTACHED DUAL OCCUPANCY DWELLING",
+    price: "$5,400,000",
+    location: "2 Quandong Street Leppington NSW 2179 Lot128 DP1280468",
+    beds: 0,
+    baths: 0,
+    cars: 200,
+    type: "Mixed-use",
+    client: "Tech Ventures",
+    completion: "2024",
+    img: "/img/project4.png",
+    features: [
+      { name: "Co-working Spaces", icon: MdOutlineBalcony },
+      { name: "Rooftop Amenities", icon: DoorClosed },
+      { name: "Basement Parking", icon: ParkingSquare },
+      { name: "Smart Access Control", icon: Key },
+      { name: "Energy Efficient HVAC", icon: ShowerHead },
+      { name: "Durable Structure", icon: Building2 },
+    ],
+     floorImages: [
+      { src: "/img/plan/plan4.jpg", label: "Site Plan" },
+      { src: "/img/plan/plan44.jpg", label: "Ground Floor" },
+      { src: "/img/plan/plan444.jpg", label: "First Floor" },
+      { src: "/img/plan/plan4444.jpg", label: "First Floor" },
+      { src: "/img/plan/plan44444.jpg", label: "First Floor" },
+    ],
+    desc: "A state-of-the-art complex blending office, retail, and co-working spaces for tech startups and creative professionals, with modern design and sustainable features.",
   },
 ];
 
@@ -261,75 +271,22 @@ export default function PropertyDetails() {
         {/* ✅ Right: Info */}
         <div className="flex items-center h-full">
           <div>
+             <h1 className="text-[45px] font-medium text-[#000000] mt-1">
+              {property.title}
+            </h1>
             <p className="flex items-center gap-2 mb-2 text-[#183654] text-lg font-medium">
               <MdLocationOn className="h-6 w-6 text-[#0087DB]" />{" "}
               {property.location}
             </p>
 
-            <h1 className="text-[45px] font-medium text-[#000000] mt-1">
-              {property.title}
-            </h1>
+           
 
-            <div className="flex items-center flex-wrap gap-3 text-gray-700 mt-2">
-              <span className="flex items-center gap-1 text-lg">
-                <MdSingleBed className="h-6 w-6" /> {property.beds} bed
-              </span>
-              <span className="flex items-center gap-1 text-lg">
-                <MdOutlineBathtub className="h-6 w-6" /> {property.baths} bath
-              </span>
-              <span className="flex items-center gap-1 text-lg">
-                <LiaCarSolid className="h-6 w-6" /> {property.cars} cars
-              </span>
-              <span className="text-gray-500">|</span>
-              <span className="text-lg">{property.type}</span>
-            </div>
-
-            <div className="mt-4 text-gray-700 space-y-1 text-sm">
-              <p className="text-base">
-                <span className="font-semibold">Client:</span> {property.client}
-              </p>
-              <p className="text-base">
-                <span className="font-semibold">Completion Year:</span>{" "}
-                {property.completion}
-              </p>
-            </div>
-
-            <p className="text-[22px] font-bold text-[#183654] mt-3">
-              {property.price}
-            </p>
-
-            <div className="mt-4">
-              <h3 className="italic text-[#183654] text-[20px] mb-3">
-                Property Features:
-              </h3>
-              <div className="grid grid-cols-2 gap-y-3 text-sm text-gray-700">
-                {property.features.map((f, i) => {
-                  const Icon = f.icon;
-                  return (
-                    <div
-                      key={i}
-                      className="flex items-center text-[16px] text-[#183654] gap-2"
-                    >
-                      <Icon className="h-5 w-5" />
-                      <span>{f.name}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+          
           </div>
         </div>
       </div>
 
-      {/* ✅ Description */}
-      <div className="mt-4">
-        <h2 className="italic text-[#000000] text-lg font-medium mb-2">
-          Description:
-        </h2>
-        <p className="text-[#183654] leading-relaxed text-[22px]">
-          {property.desc}
-        </p>
-      </div>
+    
 
       {/* ✅ Floor Map Slider */}
       <h2 className="text-xl font-semibold text-[#223A57] my-4">Floormap</h2>

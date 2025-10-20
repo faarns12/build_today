@@ -14,32 +14,32 @@ export type PropertyCard = {
 
 const items: PropertyCard[] = [
   {
-    tag: "FEATURED PROPERTY 01",
-    title: "OCEAN WAVE",
+    tag: "FEATURED PROPERTY ND25052502",
+    title: "A 2-STOREY SINGLE DWELLING",
     img: "/img/prop-1.jpg",
     subtitle: "A flowing, organic design inspired by the movement and rhythm of the sea.",
-    location: "NEW YORK",
+    location: "BUTCHERBIRD LANE, AUSTRA",
   },
   {
-    tag: "FEATURED PROPERTY 02",
-    title: "PUZZLE TOWER",
+    tag: "FEATURED PROPERTY NSW 2560",
+    title: "DUAL OCCUPANCY",
     img: "/img/prop-2.jpg",
     subtitle: "A flowing, organic design inspired by the movement and rhythm of the sea.",
-    location: "NEW YORK",
+    location: "CAMPBELLTOWN",
   },
   {
-    tag: "FEATURED PROPERTY 03",
-    title: "HONEY COMB",
+    tag: "FEATURED PROPERTY DP1256594",
+    title: "SINGLE DWELLING",
     img: "/img/prop-3.jpg",
     subtitle: "A flowing, organic design inspired by the movement and rhythm of the sea.",
-    location: "NEW YORK",
+    location: "COMMELINA AVENUE",
   },
   {
-    tag: "FEATURED PROPERTY 04",
-    title: "WAVE HOUSE",
+    tag: "FEATURED PROPERTY NA25040401 ",
+    title: "2-STOREY ATTACHED DUAL OCCUPANCY DWELLING",
     img: "/img/prop-4.jpg",
     subtitle: "A flowing, organic design inspired by the movement and rhythm of the sea.",
-    location: "NEW YORK",
+    location: "Quandong Street Leppington",
   },
 ];
 
@@ -68,7 +68,7 @@ export default function StickyFeaturedPropertyCards() {
 
               <div className="relative h-full p-4 sm:p-6 md:p-9 flex flex-col justify-center text-white">
                 {/* Tag pill */}
-                <span className="flex items-center justify-center text-[8px] sm:text-[10px] md:text-sm tracking-[0.15em] font-semibold rounded-full bg-white/15 ring-1 ring-white px-2 sm:px-3 py-1 w-[150px] sm:w-[232px] h-[28px] sm:h-[34px] mb-2 sm:mb-4 text-center">
+                <span className="flex items-center justify-center text-[8px] sm:text-[10px] md:text-sm tracking-[0.15em] font-semibold rounded-full bg-white/15 ring-1 ring-white px-2 sm:px-3 py-1 w-[240px] sm:w-[400px] h-[28px] sm:h-[34px] mb-2 sm:mb-4 text-center">
                   {card.tag}
                 </span>
 

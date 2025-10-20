@@ -2,16 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react"; // 🟢 added useEffect
+import { useState,  } from "react"; // 🟢 added useEffect
 import { HiMenu, HiX } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true); // 🟢 added
-  const [lastScrollY, setLastScrollY] = useState(0); // 🟢 added
+  // const [isVisible, setIsVisible] = useState(true); // 🟢 added
+  // const [lastScrollY, setLastScrollY] = useState(0); // 🟢 added
   const pathname = usePathname();
-
+//  ${
+//     isVisible ? "translate-y-[0]" : "-translate-y-[120px]" 
+//   }
   const menuItems = [
     { name: "Home", href: "/" },
     { name: "Properties", href: "/properties" },
@@ -21,27 +23,25 @@ export default function Navbar() {
   ];
 
   // 🟢 scroll listener added (no existing code changed)
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 50) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      setLastScrollY(window.scrollY);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > lastScrollY && window.scrollY > 50) {
+  //       setIsVisible(false);
+  //     } else {
+  //       setIsVisible(true);
+  //     }
+  //     setLastScrollY(window.scrollY);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [lastScrollY]);
 
   return (
     <div className="w-full flex justify-center">
       {/* 🟢 Only this class update added */}
       <nav
-  className={`w-11/12 sm:w-10/12 lg:w-9/12 h-14 lg:shadow-md z-40 md:bg-white md:backdrop-blur-md md:border fixed md:border-white/30 rounded-[17px] px-3 sm:px-2 flex items-center justify-between transition-transform duration-500 ease-in-out ${
-    isVisible ? "translate-y-[0]" : "-translate-y-[120px]" 
-  } top-10`} // keep your normal top-10
+  className={`w-11/12 sm:w-10/12 lg:w-9/12 h-14 lg:shadow-md z-40 md:bg-white md:backdrop-blur-md md:border fixed md:border-white/30 rounded-[17px] px-3 sm:px-2 flex items-center justify-between transition-transform duration-500 ease-in-out top-10`} // keep your normal top-10
 >
 
         {/* Desktop Menu */}
