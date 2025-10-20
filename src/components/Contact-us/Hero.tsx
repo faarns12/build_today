@@ -20,6 +20,8 @@ export default function Heros() {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
 
+
+    
     // Optional: Clear form after submit
     setFormData({ name: "", email: "", message: "" });
   };
