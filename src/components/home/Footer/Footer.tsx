@@ -132,8 +132,8 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-[#FFFFFF] mt-8 pt-4 flex flex-col md:flex-row justify-between items-center text-sm text-white/80">
           <p className="text-base ">
-            <a href="https://www.faarns.com/" className="font-bold">
-              @2025 FAARNS
+            <a href="#" className="font-bold">
+            @2025 Yellow Dice
             </a>
             , All Rights Reserved
           </p>
