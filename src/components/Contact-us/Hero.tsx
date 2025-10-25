@@ -1,13 +1,35 @@
 "use client";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
 
-export default function Heros() {
-  const [formData, setFormData] = useState({
+type FormDataType = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+const GOOGLE_FORM_ID =
+  "1FAIpQLSeyjayaFAmi59gTitBLZB-cjrwhhMqbf1y9AFtr5zYdEKFLbQ";
+const GOOGLE_FORM_ACTION = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
+
+const ENTRY_IDS = {
+  name: "entry.2046245352",
+  email: "entry.1973266332",
+  message: "entry.407460810",
+} as const;
+
+export default function Banner() {
+  const [formData, setFormData] = useState<FormDataType>({
     name: "",
     email: "",
     message: "",
+  
   });
+
+
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -16,16 +38,36 @@ export default function Heros() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
 
+    if (!formData.name || !formData.email) {
+      toast.error("Please provide both name and email.");
+      return;
+    }
 
-    
-    // Optional: Clear form after submit
-    setFormData({ name: "", email: "", message: "" });
+    setSubmitting(true);
+    try {
+      const data = new FormData();
+      data.append(ENTRY_IDS.name, formData.name);
+      data.append(ENTRY_IDS.email, formData.email);
+      data.append(ENTRY_IDS.message, formData.message);
+
+      await fetch(GOOGLE_FORM_ACTION, {
+        method: "POST",
+        mode: "no-cors",
+        body: data,
+      });
+
+      toast.success("Submitted! Your info has been recorded.");
+      setFormData({ name: "", email: "", message: "", });
+    } catch (err) {
+      console.error(err);
+      toast.error("Submission failed. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
-
   return (
     <section
       className="relative w-full md:w-11/12 flex justify-center items-center py-20 mx-auto md:rounded-3xl md:mt-5 h-full lg:h-[700px]"
@@ -35,6 +77,7 @@ export default function Heros() {
         backgroundPosition: "center",
       }}
     >
+       <Toaster position="top-right" />
       {/* Overlay */}
       <motion.div
         className="absolute inset-0 z-0 md:rounded-3xl bg-black/80 opacity-10"
