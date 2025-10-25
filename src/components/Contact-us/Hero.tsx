@@ -16,7 +16,7 @@ const GOOGLE_FORM_ACTION = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/
 
 const ENTRY_IDS = {
   name: "entry.2046245352",
-  email: "entry.407460810",
+  email: "entry.1973266332",
   message: "entry.407460810",
 } as const;
 
