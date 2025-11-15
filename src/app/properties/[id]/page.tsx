@@ -92,21 +92,21 @@ const properties = [
     type: "Commercial",
     client: "LMN Enterprises",
     completion: "2023",
-    img: "/img/house3.png",
+    img: "/img/prop6.jpg",
     features: [
-      { name: "Rooftop Green Spaces", icon: MdOutlineBalcony },
-      { name: "Flexible Office Layouts", icon: DoorClosed },
-      { name: "Basement Parking", icon: ParkingSquare },
-      { name: "Smart Security System", icon: Key },
-      { name: "Energy Efficient Design", icon: ShowerHead },
-      { name: "Modern Construction", icon: Building2 },
+      // { name: "Rooftop Green Spaces", icon: MdOutlineBalcony },
+      // { name: "Flexible Office Layouts", icon: DoorClosed },
+      // { name: "Basement Parking", icon: ParkingSquare },
+      // { name: "Smart Security System", icon: Key },
+      // { name: "Energy Efficient Design", icon: ShowerHead },
+      // { name: "Modern Construction", icon: Building2 },
     ],
     floorImages: [
-      { src: "/img/plan/plan3.jpg", label: "Site Plan" },
-      { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
-      { src: "/img/plan/plan333.jpg", label: "First Floor" },
-      { src: "/img/plan/plan3333.jpg", label: "First Floor" },
-      { src: "/img/plan/plan33333.jpg", label: "First Floor" },
+      // { src: "/img/plan/plan3.jpg", label: "Site Plan" },
+      // { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
+      // { src: "/img/plan/plan333.jpg", label: "First Floor" },
+      // { src: "/img/plan/plan3333.jpg", label: "First Floor" },
+      // { src: "/img/plan/plan33333.jpg", label: "First Floor" },
     ],
     desc: "A contemporary retail and lifestyle hub with green rooftops and flexible spaces, designed for shopping, entertainment, and community engagement.",
   },
@@ -150,21 +150,21 @@ const properties = [
     type: "Commercial",
     client: "LMN Enterprises",
     completion: "2023",
-    img: "/img/house3.png",
+    img: "/img/prop6.jpg",
     features: [
-      { name: "Rooftop Green Spaces", icon: MdOutlineBalcony },
-      { name: "Flexible Office Layouts", icon: DoorClosed },
-      { name: "Basement Parking", icon: ParkingSquare },
-      { name: "Smart Security System", icon: Key },
-      { name: "Energy Efficient Design", icon: ShowerHead },
-      { name: "Modern Construction", icon: Building2 },
+      // { name: "Rooftop Green Spaces", icon: MdOutlineBalcony },
+      // { name: "Flexible Office Layouts", icon: DoorClosed },
+      // { name: "Basement Parking", icon: ParkingSquare },
+      // { name: "Smart Security System", icon: Key },
+      // { name: "Energy Efficient Design", icon: ShowerHead },
+      // { name: "Modern Construction", icon: Building2 },
     ],
     floorImages: [
-      { src: "/img/plan/plan3.jpg", label: "Site Plan" },
-      { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
-      { src: "/img/plan/plan333.jpg", label: "First Floor" },
-      { src: "/img/plan/plan3333.jpg", label: "First Floor" },
-      { src: "/img/plan/plan33333.jpg", label: "First Floor" },
+      // { src: "/img/plan/plan3.jpg", label: "Site Plan" },
+      // { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
+      // { src: "/img/plan/plan333.jpg", label: "First Floor" },
+      // { src: "/img/plan/plan3333.jpg", label: "First Floor" },
+      // { src: "/img/plan/plan33333.jpg", label: "First Floor" },
     ],
     desc: "A contemporary retail and lifestyle hub with green rooftops and flexible spaces, designed for shopping, entertainment, and community engagement.",
   },
@@ -263,7 +263,7 @@ export default function PropertyDetails() {
             <div className="w-px h-6 bg-gray-400 mx-5"></div>
             <div className="flex items-center gap-2">
               <PiScroll className="w-6 h-6" />
-              <span>{property.floorImages.length} Floorplans</span>
+              <span>{property?.floorImages?.length} Floorplans</span>
             </div>
           </div>
         </div>
@@ -288,41 +288,46 @@ export default function PropertyDetails() {
 
     
 
-      {/* ✅ Floor Map Slider */}
-      <h2 className="text-xl font-semibold text-[#223A57] my-4">Floormap</h2>
-      <div className="mx-auto bg-[#E9F3FB] p-4 rounded-lg">
-        <div className="relative w-full max-w-[800px] mx-auto">
-          <Image
-            src={property.floorImages[current].src}
-            alt={property.floorImages[current].label}
-            width={800}
-            height={443}
-            className="rounded-md object-contain border bg-white"
-          />
+   {/* ✅ Floor Map Slider — show only if floorImages exist */}
+{property.floorImages?.length > 0 && (
+  <>
+    <h2 className="text-xl font-semibold text-[#223A57] my-4">Floormap</h2>
+    <div className="mx-auto bg-[#E9F3FB] p-4 rounded-lg">
+      <div className="relative w-full max-w-[800px] mx-auto">
+        <Image
+          src={property.floorImages[current].src}
+          alt={property.floorImages[current].label}
+          width={800}
+          height={443}
+          className="rounded-md object-contain border bg-white"
+        />
 
-          {/* Counter */}
-          <div className="absolute top-3 right-3 bg-[#0094FF] text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
-            {String(current + 1).padStart(2, "0")}/
-            {String(property.floorImages.length).padStart(2, "0")}
-          </div>
+        {/* Counter */}
+        <div className="absolute top-3 right-3 bg-[#0094FF] text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
+          {String(current + 1).padStart(2, "0")}/
+          {String(property.floorImages.length).padStart(2, "0")}
+        </div>
 
-          {/* Arrows */}
-          <div className="absolute bottom-3 right-3 flex gap-2">
-            <button
-              onClick={prevSlide}
-              className="bg-white border border-black rounded-full p-2 shadow hover:bg-gray-100 transition"
-            >
-              <ArrowLeft className="w-5 h-5 text-gray-700" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="bg-white border border-black rounded-full p-2 shadow hover:bg-gray-100 transition"
-            >
-              <ArrowRight className="w-5 h-5 text-gray-700" />
-            </button>
-          </div>
+        {/* Arrows */}
+        <div className="absolute bottom-3 right-3 flex gap-2">
+          <button
+            onClick={prevSlide}
+            className="bg-white border border-black rounded-full p-2 shadow hover:bg-gray-100 transition"
+          >
+            <ArrowLeft className="w-5 h-5 text-gray-700" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="bg-white border border-black rounded-full p-2 shadow hover:bg-gray-100 transition"
+          >
+            <ArrowRight className="w-5 h-5 text-gray-700" />
+          </button>
         </div>
       </div>
+    </div>
+  </>
+)}
+
     </div>
   );
 }

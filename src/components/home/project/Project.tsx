@@ -78,7 +78,7 @@ const cards: Card[] = [
     type: "Commercial",
     client: "LMN Enterprises",
     completion: "2023",
-    img: "/img/house3.png",
+    img: "/img/prop6.jpg",
   
     floorImages: [
       { src: "/img/plan/plan3.jpg", label: "Site Plan" },
@@ -122,14 +122,14 @@ const cards: Card[] = [
     type: "Commercial",
     client: "LMN Enterprises",
     completion: "2023",
-    img: "/img/house3.png",
+    img: "/img/prop6.jpg",
   
     floorImages: [
-      { src: "/img/plan/plan3.jpg", label: "Site Plan" },
-      { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
-      { src: "/img/plan/plan333.jpg", label: "First Floor" },
-      { src: "/img/plan/plan3333.jpg", label: "First Floor" },
-      { src: "/img/plan/plan33333.jpg", label: "First Floor" },
+      // { src: "/img/plan/plan3.jpg", label: "Site Plan" },
+      // { src: "/img/plan/plan33.jpg", label: "Ground Floor" },
+      // { src: "/img/plan/plan333.jpg", label: "First Floor" },
+      // { src: "/img/plan/plan3333.jpg", label: "First Floor" },
+      // { src: "/img/plan/plan33333.jpg", label: "First Floor" },
     ],
     desc: "A contemporary retail and lifestyle hub with green rooftops and flexible spaces, designed for shopping, entertainment, and community engagement.",
   },
