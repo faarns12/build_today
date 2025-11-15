@@ -30,7 +30,7 @@ const items: PropertyCard[] = [
   {
     tag: "FEATURED PROPERTY DP1256594",
     title: "SINGLE DWELLING",
-    img: "/img/prop-3.jpg",
+    img: "/img/pro5.jpg",
     subtitle: "A flowing, organic design inspired by the movement and rhythm of the sea.",
     location: "COMMELINA AVENUE",
   },
