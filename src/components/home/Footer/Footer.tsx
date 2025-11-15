@@ -13,9 +13,7 @@ export default function Footer() {
           <div>
             <h4 className=" text-lg mb-3 text-white">Adress</h4>
             <p className="font-bold text-lg text-white ">
-              Head Office: 123 <br />
-              Main St, Sydney, <br />
-              Australia
+              20 Roald Place,<br />Leumeah 2560
             </p>
             <button
               className="cursor-pointer text-white flex items-center my-6 justify-between px-1"
@@ -43,12 +41,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg mb-3 text-white">Contact</h4>
             <p className="mb-1 font-bold text-lg text-white ">
-              info@buildtoday.com.au
+              Info@btoday.com.au
             </p>
-            <p className="mb-1 font-bold text-lg text-white ">
-              helpdesk@buildtoday.com.au
-            </p>
-            <p className="font-bold text-lg text-white ">+61 123 456 789</p>
+            
+            <p className="font-bold text-lg text-white ">+61480138544</p>
           </div>
 
           {/* Quick Links */}
