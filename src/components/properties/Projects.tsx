@@ -47,7 +47,7 @@ const projects: Project[] = [
     details: "Commercial",
     desc: "A contemporary retail and lifestyle hub with green rooftops and flexible spaces.",
     category: "Interiors",
-    img: "/img/house3.png",
+    img: "/img/prop6-removebg-preview.png",
   },
   {
     id: 3,
@@ -67,7 +67,7 @@ const projects: Project[] = [
     details: "Commercial",
     desc: "A contemporary retail and lifestyle hub with green rooftops and flexible spaces.",
     category: "Interiors",
-    img: "/img/house3.png",
+    img: "/img/prop6-removebg-preview.png",
   },
   {
     id: 6,
