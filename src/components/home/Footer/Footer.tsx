@@ -11,7 +11,7 @@ export default function Footer() {
         <div className=" mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Address */}
           <div>
-            <h4 className=" text-lg mb-3 text-white">Adress</h4>
+            <h4 className=" text-lg mb-3 text-white">Address</h4>
             <p className="font-bold text-lg text-white ">
               20 Roald Place,<br />Leumeah 2560
             </p>
